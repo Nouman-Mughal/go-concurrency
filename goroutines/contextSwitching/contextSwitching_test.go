@@ -44,3 +44,7 @@ func BenchmarkContextSwitching(b *testing.B) {
 	close(begin)
 	wg.Wait()
 }
+
+// so when we run  ```GO111MODULE=off go test -bench=. -cpu=1 contextSwitching_test.go```
+
+// I get 188.8 ns per context switch. which is 0.1888 microseconds.which means goroutines context switching is 8.7 times faster than thread context switching.
